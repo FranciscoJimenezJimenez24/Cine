@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="create_by">Created by Paco</string>
+    <string name="go_to_the_web_side">Go to the web side</string>
+    <string name="get_support">Get support</string>
+    <string name="back">Back</string>
+    <string name="about_go_to_the_web_side">Go to the web side</string>
+    <string name="about_get_support">Get support</string>
+    <string name="about_back">Back</string>
+</resources>

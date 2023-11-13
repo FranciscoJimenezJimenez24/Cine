@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Cine</string>
+
+    <string name="create_by">Creada por Paco</string>
+    <string name="go_to_the_web_side">Ir al sitio web</string>
+    <string name="get_support">Obtener soporte</string>
+    <string name="back">Volver</string>
+    <string name="about_go_to_the_web_side">Ir al sitio web</string>
+    <string name="about_get_support">Obtener soporte</string>
+    <string name="about_back">Volver</string>
+
+</resources>
