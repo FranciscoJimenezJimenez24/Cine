@@ -36,11 +36,8 @@ class AboutActivity : AppCompatActivity() {
     }
 
     fun goToTheWebSide(){
-
-        val intent= Intent(ACTION_VIEW, Uri.parse("http://www.midominio.com"))
+        val intent= Intent(ACTION_VIEW, Uri.parse("https://www.google.com/?hl=es&safe=active&ssui=on"))
         startActivity(intent)
-
-
     }
 
     fun getSupport(){
