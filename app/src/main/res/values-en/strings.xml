@@ -7,4 +7,12 @@
     <string name="about_go_to_the_web_side">Go to the web side</string>
     <string name="about_get_support">Get support</string>
     <string name="about_back">Back</string>
+    <string name="watch_film_A">Watch film A</string>
+    <string name="watch_film_B">Watch film B</string>
+    <string name="about">About</string>
+    <string name="watch_related_film">Watch related film</string>
+    <string name="edit_film">Edit film</string>
+    <string name="back_to_the_main">Back to the main</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
 </resources>

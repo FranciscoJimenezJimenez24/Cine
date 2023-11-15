@@ -8,5 +8,12 @@
     <string name="about_go_to_the_web_side">Ir al sitio web</string>
     <string name="about_get_support">Obtener soporte</string>
     <string name="about_back">Volver</string>
-
+    <string name="watch_film_A">Ver película A</string>
+    <string name="watch_film_B">Ver película B</string>
+    <string name="about">Acerca de</string>
+    <string name="watch_related_film">Ver película relacionada</string>
+    <string name="edit_film">Editar película</string>
+    <string name="back_to_the_main">Volver al principal</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancel</string>
 </resources>
