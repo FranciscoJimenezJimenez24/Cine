@@ -15,4 +15,6 @@
     <string name="back_to_the_main">Back to the main</string>
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
+    <string name="film_A">Film A</string>
+    <string name="film_B">Film B</string>
 </resources>

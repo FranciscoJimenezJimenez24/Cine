@@ -15,6 +15,7 @@ class FilmListActivity : AppCompatActivity() {
         btnFilmA.setOnClickListener { navigateToData() }
         btnFilmB.setOnClickListener { navigateToData() }
         btnAbout.setOnClickListener { navigateToAbout() }
+
     }
 
     private fun navigateToAbout() {
@@ -23,7 +24,7 @@ class FilmListActivity : AppCompatActivity() {
     }
 
     private fun navigateToData() {
-        val intent= Intent(this,FilmEditActivity::class.java)
+        val intent= Intent(this,FilmDataActivity::class.java)
         startActivity(intent)
     }
 }

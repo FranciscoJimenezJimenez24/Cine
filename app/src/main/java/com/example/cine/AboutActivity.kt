@@ -32,7 +32,7 @@ class AboutActivity : AppCompatActivity() {
         toastBack.setOnClickListener {
             Toast.makeText(this,R.string.about_back,Toast.LENGTH_SHORT).show()
         }
-        btnBack.setOnClickListener { finish() }
+        btnBack.setOnClickListener { startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)) }
     }
 
     fun goToTheWebSide(){
