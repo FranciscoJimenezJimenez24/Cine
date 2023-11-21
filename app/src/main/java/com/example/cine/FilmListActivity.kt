@@ -17,8 +17,8 @@ class FilmListActivity : AppCompatActivity() {
         val btnFilmA: Button =findViewById(R.id.btnFilmA)
         val btnFilmB: Button=findViewById(R.id.btnFilmB)
         val btnAbout:Button=findViewById(R.id.btnAbout)
-        btnFilmA.setOnClickListener { navigateToDataFilm("A") }
-        btnFilmB.setOnClickListener { navigateToDataFilm("B") }
+        btnFilmA.setOnClickListener { navigateToDataFilm(getString(R.string.film_A)) }
+        btnFilmB.setOnClickListener { navigateToDataFilm(getString(R.string.film_B)) }
         btnAbout.setOnClickListener { navigateToAbout() }
 
     }

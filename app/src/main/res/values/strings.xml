@@ -18,4 +18,8 @@
     <string name="cancel">Cancelar</string>
     <string name="film_A">Película A</string>
     <string name="film_B">Película B</string>
+    <string name="saved_changes">Cambios guardados</string>
+    <string name="unsaved_changes">Cambios no guardados</string>
+    <string name="successfully_saved">Guardado con exito</string>
+    <string name="process_cancelled">Proceso cancelado</string>
 </resources>
