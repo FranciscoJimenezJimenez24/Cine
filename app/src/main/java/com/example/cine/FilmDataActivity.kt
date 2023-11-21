@@ -40,10 +40,10 @@ class FilmDataActivity : AppCompatActivity() {
             // Verificar el resultado y actuar en consecuencia
             if (resultCode == RESULT_OK) {
                 // El usuario guardó los cambios
-                val textViewChangesResult = findViewById<TextView>(R.id.tvChange)
+                val textViewChangesResult:TextView = findViewById(R.id.tvChange)
                 textViewChangesResult.text = "Cambios guardados"
             } else if (resultCode == RESULT_CANCELED) {
-                val textViewChangesResult = findViewById<TextView>(R.id.tvChange)
+                val textViewChangesResult:TextView = findViewById(R.id.tvChange)
                 textViewChangesResult.text = "Cambios NO guardados"
             }
         }
