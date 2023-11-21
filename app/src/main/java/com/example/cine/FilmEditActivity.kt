@@ -22,7 +22,7 @@ class FilmEditActivity : AppCompatActivity() {
         // Realizar las operaciones de guardado
         // Establecer el resultado y finalizar la actividad
         setResult(Activity.RESULT_OK)
-        Toast.makeText(this,"Guardado con exito", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this,R.string.successfully_saved, Toast.LENGTH_SHORT).show()
         finish()
     }
 
@@ -32,7 +32,7 @@ class FilmEditActivity : AppCompatActivity() {
         // Operaciones de cancelación
         // Establecer el resultado de cancelación y finalizar la actividad
         setResult(Activity.RESULT_CANCELED)
-        Toast.makeText(this,"Proceso cancelado", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this,R.string.process_cancelled, Toast.LENGTH_SHORT).show()
         finish()
     }
 
