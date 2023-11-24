@@ -12,6 +12,8 @@ import android.widget.Toast
 class FilmDataActivity : AppCompatActivity() {
     companion object{
         var EXTRA_FILM_TITLE="EXTRA_FILM_TITLE"
+        val EXTRA_DIRECTOR="EXTRA_DIRECTOR"
+        val EXTRA_POSTER="EXTRA_POSTER"
         const val REQUEST_EDIT_FILM  = 1
     }
 
@@ -19,8 +21,14 @@ class FilmDataActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_film_data)
         val filmTitle=intent.getStringExtra(EXTRA_FILM_TITLE)
+        val director=intent.getStringExtra(EXTRA_DIRECTOR)
+        val poster=intent.getStringExtra(EXTRA_POSTER)
         val tvFilm: TextView =findViewById(R.id.tvFilm)
+        val tvDirector:TextView=findViewById(R.id.tvDirector)
+        val tvPoster:TextView=findViewById(R.id.tvPoster)
+        tvDirector.text=director
         tvFilm.text =filmTitle
+        tvPoster.text=poster
         val btnRelatedFilm: Button =findViewById(R.id.btnRelatedFilm)
         val btnEditFilm:Button=findViewById(R.id.btnEditFilm)
         val btnBackMain:Button=findViewById(R.id.btnBackMain)
