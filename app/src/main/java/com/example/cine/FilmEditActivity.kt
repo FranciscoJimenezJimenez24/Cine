@@ -10,8 +10,8 @@ class FilmEditActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_film_edit)
-        val btnSave:Button=findViewById(R.id.btnSave)
-        val btnCancel:Button=findViewById(R.id.btnCancel)
+        val btnSave: Button = findViewById(R.id.btnSave)
+        val btnCancel: Button = findViewById(R.id.btnCancel)
         btnSave.setOnClickListener { save() }
         btnCancel.setOnClickListener { cancel() }
 
@@ -22,7 +22,7 @@ class FilmEditActivity : AppCompatActivity() {
         // Realizar las operaciones de guardado
         // Establecer el resultado y finalizar la actividad
         setResult(Activity.RESULT_OK)
-        Toast.makeText(this,R.string.successfully_saved, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, R.string.successfully_saved, Toast.LENGTH_SHORT).show()
         finish()
     }
 
@@ -32,7 +32,7 @@ class FilmEditActivity : AppCompatActivity() {
         // Operaciones de cancelación
         // Establecer el resultado de cancelación y finalizar la actividad
         setResult(Activity.RESULT_CANCELED)
-        Toast.makeText(this,R.string.process_cancelled, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, R.string.process_cancelled, Toast.LENGTH_SHORT).show()
         finish()
     }
 
