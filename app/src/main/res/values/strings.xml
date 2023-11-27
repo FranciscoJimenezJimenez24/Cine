@@ -24,4 +24,13 @@
     <string name="unsaved_changes">Cambios no guardados</string>
     <string name="successfully_saved">Guardado con exito</string>
     <string name="process_cancelled">Proceso cancelado</string>
+
+    <string name="war">Bélico</string>
+    <string name="drama">Drama</string>
+    <string name="panoramic">Panorámico</string>
+    <string name="anormorfic_35_mm">35 mm anamórfico</string>
+    <string name="view_at_IMDB">Ver en IMDB</string>
+    <string name="link_fight_club">https://www.imdb.com/title/tt0137523/</string>
+    <string name="link_saving_private_ryan">https://www.imdb.com/title/tt0120815/</string>
+
 </resources>
