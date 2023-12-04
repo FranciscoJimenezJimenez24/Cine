@@ -32,4 +32,15 @@
     <string name="panoramic">Format: Panoramic</string>
     <string name="anamorphic_35_mm">Format: 35 mm anamorphic</string>
     <string name="view_at_IMDB">View at IMDB</string>
+    <string name="take_a_picture">Take a picture</string>
+    <string name="select_an_image">Select an image</string>
+    <string name="title_of_the_film">Title of the film: </string>
+    <string name="director_of_the_film">Director of the film: </string>
+    <string name="year_of_the_film">Year of the film: </string>
+    <string name="link_imdb">Link IMDB: </string>
+    <string name="introduce_some_notes">Introduce some notes</string>
+    <string name="action">Action</string>
+    <string name="comedy">Comedy</string>
+    <string name="terror">Terror</string>
+    <string name="sciencie_fiction">Science Fiction</string>
 </resources>

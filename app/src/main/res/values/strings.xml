@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Cine</string>
 
     <string name="create_by">Creada por Paco</string>
@@ -33,5 +33,15 @@
     <string name="view_at_IMDB">Ver en IMDB</string>
     <string name="link_fight_club">https://www.imdb.com/title/tt0137523/</string>
     <string name="link_saving_private_ryan">https://www.imdb.com/title/tt0120815/</string>
-
+    <string name="take_a_picture">Tomar una fotografía</string>
+    <string name="select_an_image">Seleccionar una imagen</string>
+    <string name="title_of_the_film">Título de la película: </string>
+    <string name="director_of_the_film">Director de la película: </string>
+    <string name="year_of_the_film">Año de la película: </string>
+    <string name="link_imdb">Link IMDB: </string>
+    <string name="introduce_some_notes">Introducir algunas notas</string>
+    <string name="action">Acción</string>
+    <string name="comedy">Comedia</string>
+    <string name="terror">Terror</string>
+    <string name="sciencie_fiction">Ciencia Ficción</string>
 </resources>

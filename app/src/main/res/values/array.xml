@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="gender_options">
+        <item>@string/action</item>
+        <item>Drama</item>
+        <item>@string/comedy</item>
+        <item>@string/terror</item>
+        <item>@string/sciencie_fiction</item>
+    </string-array>
+
+    <string-array name="format_options">
+        <item>DVD</item>
+        <item>Blu-ray</item>
+        <item>Online</item>
+    </string-array>
+</resources>
