@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.content.Intent.ACTION_VIEW
+import android.graphics.Bitmap
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,11 +17,11 @@ import android.widget.Toast
 class FilmDataActivity : AppCompatActivity() {
     companion object {
         var EXTRA_FILM_TITLE = "EXTRA_FILM_TITLE"
-        val EXTRA_DIRECTOR = "EXTRA_DIRECTOR"
+        val EXTRA_DIRECTOR_FILM = "EXTRA_DIRECTOR_FILM"
         val EXTRA_POSTER_ID = "EXTRA_POSTER_ID"
         val EXTRA_GENDER = "EXTRA_GENDER"
         val EXTRA_FORMAT = "EXTRA_FORMAT"
-        val EXTRA_YEAR = "EXTRA_YEAR"
+        val EXTRA_YEAR_FILM = "EXTRA_YEAR_FILM"
         val EXTRA_LINK_IMDB = "EXTRA_LINK_IMDB"
         const val REQUEST_EDIT_FILM = 1
     }
@@ -30,11 +31,11 @@ class FilmDataActivity : AppCompatActivity() {
         setContentView(R.layout.activity_film_data)
 
         val filmTitle = intent.getStringExtra(EXTRA_FILM_TITLE)
-        val director = intent.getStringExtra(EXTRA_DIRECTOR)
+        val director = intent.getStringExtra(EXTRA_DIRECTOR_FILM)
         val poster_id = intent.getIntExtra(EXTRA_POSTER_ID, 0)
         val gender = intent.getStringExtra(EXTRA_GENDER)
         val format = intent.getStringExtra(EXTRA_FORMAT)
-        val year = intent.getStringExtra(EXTRA_YEAR)
+        val year = intent.getStringExtra(EXTRA_YEAR_FILM)
         val linkIMDB = intent.getStringExtra(EXTRA_LINK_IMDB)
 
         val tvFilm: TextView = findViewById(R.id.tvFilm)
@@ -45,12 +46,15 @@ class FilmDataActivity : AppCompatActivity() {
         val tvYear: TextView = findViewById(R.id.tvYear)
         val btnIMDB: Button = findViewById(R.id.btnIMDB)
 
+        val bitmap: Bitmap? = intent.getParcelableExtra("EXTRA_IMAGE")
+
         tvDirector.text = director
         tvFilm.text = filmTitle
         ivPoster.setImageResource(poster_id)
         tvGender.text = gender
         tvFormat.text = format
         tvYear.text = year
+
 
         val btnRelatedFilm: Button = findViewById(R.id.btnRelatedFilm)
         val btnEditFilm: Button = findViewById(R.id.btnEditFilm)

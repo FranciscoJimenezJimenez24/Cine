@@ -38,28 +38,28 @@
         android:id="@+id/etTitleFilm"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="@string/title_of_the_film"
+        android:hint="@string/title_of_the_film"
         android:padding="8dp"/>
 
     <EditText
         android:id="@+id/etDirectorFilm"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="@string/director_of_the_film"
+        android:hint="@string/director_of_the_film"
         android:padding="8dp"/>
 
     <EditText
         android:id="@+id/etYearFilm"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="@string/year_of_the_film"
+        android:hint="@string/year_of_the_film"
         android:padding="8dp"/>
 
     <EditText
         android:id="@+id/etLinkIMDB"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="@string/link_imdb"
+        android:hint="@string/link_imdb"
         android:padding="8dp"/>
 
 
@@ -79,7 +79,7 @@
         android:id="@+id/etNotes"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="@string/introduce_some_notes"
+        android:hint="@string/introduce_some_notes"
         android:padding="8dp"/>
 
     <LinearLayout
