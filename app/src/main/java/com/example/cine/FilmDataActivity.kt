@@ -26,6 +26,8 @@ class FilmDataActivity : AppCompatActivity() {
         const val REQUEST_EDIT_FILM = 1
     }
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_film_data)

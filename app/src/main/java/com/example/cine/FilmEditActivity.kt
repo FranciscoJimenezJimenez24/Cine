@@ -2,6 +2,7 @@ package com.example.cine
 
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
@@ -13,11 +14,28 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import android.Manifest
 import androidx.core.graphics.drawable.toBitmap
 
 class FilmEditActivity : AppCompatActivity() {
-    val REQUEST_IMAGE_CAPTURE = 1
-    val REQUEST_IMAGE_PICK=2
+    companion object {
+        const val REQUEST_IMAGE_CAPTURE = 1
+        const val REQUEST_IMAGE_PICK=2
+    }
+
+    private val getContent =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == RESULT_OK) {
+                val data: Intent? = result.data
+                val selectedFileUri = data?.data
+                // Aquí puedes trabajar con el archivo seleccionado
+            }
+        }
+
+
     lateinit var ivPoster: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,19 +54,24 @@ class FilmEditActivity : AppCompatActivity() {
         val btnCancel: Button = findViewById(R.id.btnCancel)
 
         btnTakePicture.setOnClickListener {
-            val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            // Verifica que haya una app de cámara para manejar este intent
-            if (takePictureIntent.resolveActivity(packageManager) != null) {
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+                // Si no se tiene el permiso, solicítalo al usuario
+                ActivityCompat.requestPermissions(this,
+                    arrayOf(Manifest.permission.CAMERA),
+                    1)
+            } else {
+                // Si ya se tiene el permiso, inicia la actividad de captura de imágenes
+                val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                startActivityForResult(intent, REQUEST_IMAGE_CAPTURE)
             }
+            val intent =Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(intent,REQUEST_IMAGE_CAPTURE);
         }
         btnSelectImage.setOnClickListener {
-            val pickImageIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            pickImageIntent.type = "image/*" // Filtrar para que solo se muestren imágenes
-
-            if (pickImageIntent.resolveActivity(packageManager) != null) {
-                startActivityForResult(pickImageIntent, REQUEST_IMAGE_PICK)
-            }
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.type = "*/*"
+            getContent.launch(intent)
         }
         btnSave.setOnClickListener { save(ivPoster,etTitleFilm,etDirectorFilm,etYearFilm,etLinkIMDB,spinnerGender,spinnerFormat) }
         btnCancel.setOnClickListener { cancel() }
@@ -102,6 +125,8 @@ class FilmEditActivity : AppCompatActivity() {
 
         if (titleFilm.isNotEmpty()) {
             intent.putExtra("EXTRA_FILM_TITLE", titleFilm)
+        }else{
+            intent.putExtra("EXTRA_FILM_TITLE", FilmDataActivity.)
         }
         if(directorFilm.isNotEmpty()){
             intent.putExtra("EXTRA_DIRECTOR_FILM", directorFilm)
