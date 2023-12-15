@@ -11,10 +11,10 @@ import android.widget.Toast
 class FilmListActivity : AppCompatActivity() {
     companion object {
         val EXTRA_FILM_TITLE = "EXTRA_FILM_TITLE"
-        val EXTRA_DIRECTOR = "EXTRA_DIRECTOR"
+        val EXTRA_DIRECTOR_FILM = "EXTRA_DIRECTOR_FILM"
         val EXTRA_POSTER_ID = "EXTRA_POSTER_ID"
         val EXTRA_GENDER = "EXTRA_GENDER"
-        val EXTRA_YEAR = "EXTRA_YEAR"
+        val EXTRA_YEAR_FILM = "EXTRA_YEAR_FILM"
         val EXTRA_FORMAT = "EXTRA_FORMAT"
         val EXTRA_LINK_IMDB = "EXTRA_LINK_IMDB"
     }
@@ -69,10 +69,10 @@ class FilmListActivity : AppCompatActivity() {
     ) {
         val intent = Intent(this, FilmDataActivity::class.java)
         intent.putExtra(FilmListActivity.EXTRA_FILM_TITLE, film)
-        intent.putExtra(FilmListActivity.EXTRA_DIRECTOR, director)
+        intent.putExtra(FilmListActivity.EXTRA_DIRECTOR_FILM, director)
         intent.putExtra(FilmListActivity.EXTRA_POSTER_ID, posterID)
         intent.putExtra(FilmListActivity.EXTRA_GENDER, gender)
-        intent.putExtra(FilmListActivity.EXTRA_YEAR, year)
+        intent.putExtra(FilmListActivity.EXTRA_YEAR_FILM, year)
         intent.putExtra(FilmListActivity.EXTRA_FORMAT, format)
         intent.putExtra(FilmListActivity.EXTRA_LINK_IMDB, linkIMDB)
         startActivity(intent)

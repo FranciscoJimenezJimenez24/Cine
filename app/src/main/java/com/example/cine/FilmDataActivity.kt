@@ -17,12 +17,12 @@ import android.widget.Toast
 class FilmDataActivity : AppCompatActivity() {
     companion object {
         var EXTRA_FILM_TITLE = "EXTRA_FILM_TITLE"
-        val EXTRA_DIRECTOR_FILM = "EXTRA_DIRECTOR_FILM"
-        val EXTRA_POSTER_ID = "EXTRA_POSTER_ID"
-        val EXTRA_GENDER = "EXTRA_GENDER"
-        val EXTRA_FORMAT = "EXTRA_FORMAT"
-        val EXTRA_YEAR_FILM = "EXTRA_YEAR_FILM"
-        val EXTRA_LINK_IMDB = "EXTRA_LINK_IMDB"
+        var EXTRA_DIRECTOR_FILM = "EXTRA_DIRECTOR_FILM"
+        var EXTRA_POSTER_ID = "EXTRA_POSTER_ID"
+        var EXTRA_GENDER = "EXTRA_GENDER"
+        var EXTRA_FORMAT = "EXTRA_FORMAT"
+        var EXTRA_YEAR_FILM = "EXTRA_YEAR_FILM"
+        var EXTRA_LINK_IMDB = "EXTRA_LINK_IMDB"
         const val REQUEST_EDIT_FILM = 1
     }
 

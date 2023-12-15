@@ -123,18 +123,16 @@ class FilmEditActivity : AppCompatActivity() {
         }
 
 
-        if (titleFilm.isNotEmpty()) {
+        if (titleFilm.isNotBlank()) {
             intent.putExtra("EXTRA_FILM_TITLE", titleFilm)
-        }else{
-            intent.putExtra("EXTRA_FILM_TITLE", FilmDataActivity.)
         }
-        if(directorFilm.isNotEmpty()){
+        if(directorFilm.isNotBlank()){
             intent.putExtra("EXTRA_DIRECTOR_FILM", directorFilm)
         }
-        if(yearFilm.isNotEmpty()){
+        if(yearFilm.isNotBlank()){
             intent.putExtra("EXTRA_YEAR_FILM", yearFilm)
         }
-        if(linkIMDB.isNotEmpty()){
+        if(linkIMDB.isNotBlank()){
             intent.putExtra("EXTRA_LINK_IMDB",linkIMDB)
         }
         if(gender!=R.id.spinnerGender.toString()){
