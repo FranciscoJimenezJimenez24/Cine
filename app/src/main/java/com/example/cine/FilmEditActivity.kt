@@ -18,14 +18,21 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import android.Manifest
+import android.graphics.BitmapFactory
 import androidx.core.graphics.drawable.toBitmap
+import java.io.ByteArrayOutputStream
+import java.io.IOException
+import java.io.InputStream
 
 class FilmEditActivity : AppCompatActivity() {
     companion object {
         const val REQUEST_IMAGE_CAPTURE = 1
         const val REQUEST_IMAGE_PICK=2
+        const val IMAGE_URI_KEY = "imageUri"
+        var DEFAULT_IMAGE_RESOURCE = R.drawable.no_salvo_imagen
     }
 
+    var imageUri: Uri? = null
     private val getContent =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
@@ -40,6 +47,15 @@ class FilmEditActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_film_edit)
+
+        if (savedInstanceState != null) {
+            val savedImageUri = savedInstanceState.getString(IMAGE_URI_KEY)
+            if (!savedImageUri.isNullOrEmpty()) {
+                imageUri = Uri.parse(savedImageUri)
+                ivPoster.setImageURI(imageUri)
+            }
+        }
+
 
         ivPoster =findViewById(R.id.ivPoster)
         val btnTakePicture:Button=findViewById(R.id.btnTakePicture)
@@ -80,26 +96,36 @@ class FilmEditActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
-            // La imagen ha sido capturada, puedes acceder a ella aquí si lo deseas
-            val imageBitmap = data?.extras?.get("data") as Bitmap
-
-            // Haz algo con la imagen capturada (por ejemplo, mostrarla en un ImageView)
-            ivPoster.setImageBitmap(imageBitmap)
-        }
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == REQUEST_IMAGE_PICK && resultCode == Activity.RESULT_OK) {
-            // La imagen ha sido seleccionada
-            val selectedImageUri: Uri? = data?.data
-
-            // Haz algo con la imagen seleccionada, por ejemplo, muestra la imagen en un ImageView
-            ivPoster.setImageURI(selectedImageUri)
+        when (requestCode) {
+            REQUEST_IMAGE_CAPTURE -> {
+                if (resultCode == RESULT_OK && data != null) {
+                    val imageBitmap = data.extras?.get("data") as Bitmap?
+                    imageUri = getImageUri(imageBitmap)
+                    ivPoster.setImageURI(imageUri)
+                }
+            }
+            REQUEST_IMAGE_PICK -> {
+                if (resultCode == RESULT_OK && data != null) {
+                    data.data?.let {
+                        imageUri = it
+                        ivPoster.setImageURI(imageUri)
+                    }
+                }
+            }
         }
     }
 
-
+    private fun getImageUri(inImage: Bitmap?): Uri {
+        val bytes = ByteArrayOutputStream()
+        inImage?.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
+        val path = MediaStore.Images.Media.insertImage(
+            contentResolver,
+            inImage,
+            "Title",
+            null
+        )
+        return Uri.parse(path)
+    }
 
     //Funcion que establece resultado a OK,Muestra un mensaje de guardado y te manda a la pagina principal
     private fun save(ivPoster:ImageView,etTitleFilm:EditText,etDirectorFilm:EditText,etYearFilm:EditText,etLinkIMDB:EditText,spinnerGender: Spinner,spinnerFormat: Spinner) {
@@ -114,15 +140,8 @@ class FilmEditActivity : AppCompatActivity() {
 
         val intent= Intent(this,FilmDataActivity::class.java)
 
-        val drawable = ivPoster.drawable
-        if (drawable != null && drawable is BitmapDrawable) {
-            val bitmap: Bitmap = drawable.bitmap
-            if (!bitmap.isRecycled && bitmap.width > 0 && bitmap.height > 0){
-                intent.putExtra("EXTRA_IMAGE",bitmap)
-            }
-        }
-
-
+        val uri = imageUri ?: Uri.parse("android.resource://$packageName/${DEFAULT_IMAGE_RESOURCE}")
+        intent.putExtra(IMAGE_URI_KEY, uri.toString())
         if (titleFilm.isNotBlank()) {
             intent.putExtra("EXTRA_FILM_TITLE", titleFilm)
         }

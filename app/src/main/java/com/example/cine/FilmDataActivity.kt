@@ -26,8 +26,6 @@ class FilmDataActivity : AppCompatActivity() {
         const val REQUEST_EDIT_FILM = 1
     }
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_film_data)
@@ -41,14 +39,14 @@ class FilmDataActivity : AppCompatActivity() {
         val linkIMDB = intent.getStringExtra(EXTRA_LINK_IMDB)
 
         val tvFilm: TextView = findViewById(R.id.tvFilm)
-        val tvDirector: TextView = findViewById(R.id.tvDirector)
+        var tvDirector: TextView = findViewById(R.id.tvDirector)
         val ivPoster: ImageView = findViewById(R.id.ivPoster)
         val tvGender: TextView = findViewById(R.id.tvGender)
         val tvFormat: TextView = findViewById(R.id.tvFormat)
         val tvYear: TextView = findViewById(R.id.tvYear)
         val btnIMDB: Button = findViewById(R.id.btnIMDB)
 
-        val bitmap: Bitmap? = intent.getParcelableExtra("EXTRA_IMAGE")
+        //val bitmap: String? = intent.getStringExtra("EXTRA_IMAGE")
 
         tvDirector.text = director
         tvFilm.text = filmTitle
@@ -83,6 +81,19 @@ class FilmDataActivity : AppCompatActivity() {
             // Verificar el resultado y actuar en consecuencia
             if (resultCode == RESULT_OK) {
                 // El usuario guardó los cambios
+
+                val tvDirector:TextView=findViewById(R.id.tvDirector)
+                tvDirector.text = intent.getStringExtra(EXTRA_DIRECTOR_FILM)
+                val tvFilm: TextView = findViewById(R.id.tvFilm)
+                tvFilm.text = intent.getStringExtra(EXTRA_FILM_TITLE)
+                //ivPoster.setImageResource(poster_id)
+                val tvGender: TextView = findViewById(R.id.tvGender)
+                tvGender.text = intent.getStringExtra(EXTRA_GENDER)
+                val tvFormat: TextView = findViewById(R.id.tvFormat)
+                tvFormat.text = intent.getStringExtra(EXTRA_FORMAT)
+                val tvYear: TextView = findViewById(R.id.tvYear)
+                tvYear.text = intent.getStringExtra(EXTRA_YEAR_FILM)
+
                 val textViewChangesResult: TextView = findViewById(R.id.tvChange)
                 textViewChangesResult.text = getString(R.string.saved_changes)
             } else if (resultCode == RESULT_CANCELED) {
